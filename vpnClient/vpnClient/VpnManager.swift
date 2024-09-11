@@ -52,12 +52,12 @@ class VpnManager: VpnManagerProtocol {
     /// - Returns: configured connection manager
     private func createVpnConfiguration() -> NETunnelProviderManager {
         let manager = NETunnelProviderManager()
-        let config = NETunnelProviderProtocol()
+        let config = NEVPNProtocolIKEv2()
         
         config.serverAddress = "vpn.provider.local" // Replace with vpn provider address
         config.username = "my_optional_user_name"
         config.passwordReference = getPasswordPreference() // optional password
-        
+        config.authenticationMethod = .none
         
         manager.protocolConfiguration = config
         
