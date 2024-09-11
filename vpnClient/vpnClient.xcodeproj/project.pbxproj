@@ -14,7 +14,9 @@
 		8E4129072C91C5F000CA0719 /* VpnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4129062C91C5F000CA0719 /* VpnManager.swift */; };
 		8E41290F2C91D73600CA0719 /* vpnClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41290E2C91D73600CA0719 /* vpnClientTests.swift */; };
 		8E4129162C91E0AD00CA0719 /* VpnManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4129152C91E0AD00CA0719 /* VpnManagerProtocol.swift */; };
-		8E4129182C91E2AF00CA0719 /* MockVpnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4129172C91E2AF00CA0719 /* MockVpnManager.swift */; };
+		8E41291D2C92042400CA0719 /* VpnStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41291C2C92042400CA0719 /* VpnStatusMonitor.swift */; };
+		8E4129202C92090700CA0719 /* MockVpnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4129172C91E2AF00CA0719 /* MockVpnManager.swift */; };
+		8E4129212C92093000CA0719 /* MockVPNConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41291A2C91FF3500CA0719 /* MockVPNConnection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,9 @@
 		8E41290E2C91D73600CA0719 /* vpnClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vpnClientTests.swift; sourceTree = "<group>"; };
 		8E4129152C91E0AD00CA0719 /* VpnManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnManagerProtocol.swift; sourceTree = "<group>"; };
 		8E4129172C91E2AF00CA0719 /* MockVpnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVpnManager.swift; sourceTree = "<group>"; };
+		8E4129192C91F27000CA0719 /* vpnClient.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = vpnClient.xctestplan; sourceTree = "<group>"; };
+		8E41291A2C91FF3500CA0719 /* MockVPNConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVPNConnection.swift; sourceTree = "<group>"; };
+		8E41291C2C92042400CA0719 /* VpnStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnStatusMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 		8E24C8B92C91C01D00C04979 = {
 			isa = PBXGroup;
 			children = (
+				8E4129192C91F27000CA0719 /* vpnClient.xctestplan */,
 				8E24C8C42C91C01D00C04979 /* vpnClient */,
 				8E41290D2C91D73600CA0719 /* vpnClientTests */,
 				8E24C8C32C91C01D00C04979 /* Products */,
@@ -87,6 +93,7 @@
 				8E4129042C91C39600CA0719 /* VpnClientView.swift */,
 				8E4129062C91C5F000CA0719 /* VpnManager.swift */,
 				8E4129152C91E0AD00CA0719 /* VpnManagerProtocol.swift */,
+				8E41291C2C92042400CA0719 /* VpnStatusMonitor.swift */,
 			);
 			path = vpnClient;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 			children = (
 				8E41290E2C91D73600CA0719 /* vpnClientTests.swift */,
 				8E4129172C91E2AF00CA0719 /* MockVpnManager.swift */,
+				8E41291A2C91FF3500CA0719 /* MockVPNConnection.swift */,
 			);
 			path = vpnClientTests;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 				8E4129162C91E0AD00CA0719 /* VpnManagerProtocol.swift in Sources */,
 				8E4129052C91C39600CA0719 /* VpnClientView.swift in Sources */,
 				8E4129072C91C5F000CA0719 /* VpnManager.swift in Sources */,
+				8E41291D2C92042400CA0719 /* VpnStatusMonitor.swift in Sources */,
 				8E24C8C62C91C01D00C04979 /* vpnClientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E4129182C91E2AF00CA0719 /* MockVpnManager.swift in Sources */,
+				8E4129202C92090700CA0719 /* MockVpnManager.swift in Sources */,
 				8E41290F2C91D73600CA0719 /* vpnClientTests.swift in Sources */,
+				8E4129212C92093000CA0719 /* MockVPNConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

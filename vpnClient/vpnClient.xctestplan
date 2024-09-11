@@ -1,0 +1,19 @@
+{
+  "configurations" : [
+
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:vpnClient.xcodeproj",
+        "identifier" : "8E41290B2C91D73600CA0719",
+        "name" : "vpnClientTests"
+      }
+    }
+  ],
+  "version" : 1
+}

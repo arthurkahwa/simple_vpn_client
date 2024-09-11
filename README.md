@@ -13,6 +13,9 @@ It includes *unit test* for the VPN state and shows how to manage the VPN connec
 
 In real-world usage, you integrate *keychain access* for _securely_ storing VPN credentials and handle more complex VPN configurations like certificates or IPSec settings.
 
+## UML overview
+![VPN Client](doc/vpnclient.png)
+
 ### Sea also:
 * [Health Kit Demo](https://github.com/arthurkahwa/healthkit_showcase)
 * [AI Tic-Tac-Toe](https://github.com/arthurkahwa/ai_tictactoe)

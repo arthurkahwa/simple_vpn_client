@@ -20,13 +20,10 @@ class VpnManager: VpnManagerProtocol {
         monitorVpnStatus()
     }
     
+    /// Start monitor for connection status
     func monitorVpnStatus() {
-        NotificationCenter.default.addObserver(forName: .NEVPNStatusDidChange,
-                                               object: vpnManager?.connection,
-                                               queue: nil) { _ in
-            let status = self.vpnManager?.connection.status
-            print("❗️ Current VPN status: \(String(describing: status))")
-        }
+       let vpnMonitor = VpnStatusMonitor()
+        vpnMonitor.monitorVpnStatus()
     }
     
     /// Load VPN configuration from preferences

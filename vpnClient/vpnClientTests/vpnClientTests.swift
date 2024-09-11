@@ -40,5 +40,56 @@ final class vpnClientTests: XCTestCase {
         XCTAssertFalse(vpnManager.isConnected, "The disconnected state cannor be determined")
     }
     
+    func testMonitorVpnStatus_whenNotificationPosted_updatesStatus() {
+        // Arrange
+        let mockConnection = MockVPNConnection()
+        let mockManager = MockVpnManager(vpnConnection: mockConnection)
+        let mockNotificationCenter = NotificationCenter()
 
+        let vpnStatusMonitor = VpnStatusMonitor(notificationCenter: mockNotificationCenter)
+        
+        // To capture printed output
+        let expectation = expectation(description: "VPN status updated")
+
+        // Act
+        vpnStatusMonitor.monitorVpnStatus()
+
+        // Simulate a status change in the connection
+        mockConnection.vpnConnectionStatus = .connected
+        mockNotificationCenter.post(name: .NEVPNStatusDidChange, object: mockConnection)
+
+        // Assert
+        DispatchQueue.main.async {
+            XCTAssertEqual(mockManager.isConnected, true)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1.0)
+    }
+
+    func testMonitorVpnStatus_invalidStatusOnNotification() {
+            // Arrange
+            let mockConnection = MockVPNConnection()
+            let mockManager = MockVpnManager(vpnConnection: mockConnection)
+            let mockNotificationCenter = NotificationCenter()
+
+            let vpnStatusMonitor = VpnStatusMonitor(notificationCenter: mockNotificationCenter)
+
+            let expectation = expectation(description: "VPN status updated")
+
+            // Act
+            vpnStatusMonitor.monitorVpnStatus()
+
+            // Simulate a status change to .invalid
+            mockConnection.vpnConnectionStatus = .invalid
+            mockNotificationCenter.post(name: .NEVPNStatusDidChange, object: mockConnection)
+
+            // Assert
+            DispatchQueue.main.async {
+                XCTAssertEqual(mockManager.isConnected, false)
+                expectation.fulfill()
+            }
+
+            wait(for: [expectation], timeout: 1.0)
+        }
 }
