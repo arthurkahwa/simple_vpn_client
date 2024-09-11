@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import NetworkExtension
+
+protocol VpnManagerProtocol {
+    var isConnected: Bool { get set }
+    func connectVpn()
+    func disconnectVpn()
+}
