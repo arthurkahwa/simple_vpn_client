@@ -58,6 +58,7 @@ class VpnManager: VpnManagerProtocol {
         config.username = "my_optional_user_name"
         config.passwordReference = getPasswordPreference() // optional password
         
+        
         manager.protocolConfiguration = config
         
         manager.saveToPreferences { error in

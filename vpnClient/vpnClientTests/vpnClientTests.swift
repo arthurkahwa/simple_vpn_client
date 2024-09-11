@@ -10,12 +10,12 @@ import XCTest
 
 final class vpnClientTests: XCTestCase {
 
-    var vpnManager: VpnManager!
+    var vpnManager: MockVpnManager!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        vpnManager = VpnManager()
+        vpnManager = MockVpnManager()
     }
 
     override func tearDownWithError() throws {
@@ -28,6 +28,17 @@ final class vpnClientTests: XCTestCase {
         XCTAssertFalse(vpnManager.isConnected, "VPN should not be connected at this stage.")
     }
     
+    func test_simulated_connection_condition() {
+        vpnManager.connectVpn()
+        
+        XCTAssertTrue(vpnManager.isConnected, "The connection flag is incorrect")
+    }
+    
+    func test_vpn_disconnected_state() {
+        vpnManager.disconnectVpn()
+        
+        XCTAssertFalse(vpnManager.isConnected, "The disconnected state cannor be determined")
+    }
     
 
 }
