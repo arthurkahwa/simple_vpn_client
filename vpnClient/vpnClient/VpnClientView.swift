@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct VpnClientView: View {
+    @State private var vpnManager = VpnManager()
+        
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("VPN Client")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .padding()
+            
+            Text(String(describing: vpnManager.connectionStatus))
+                .font(.title)
+                .foregroundStyle(vpnManager.connectionStatus == .connected ? .green : .red)
+            
+            Button(action: {
+                vpnManager.connectionStatus == .connected ? vpnManager.disconnectVpn() : vpnManager.connectVpn()
+            }, label: {
+                Text(vpnManager.connectionStatus == .connected ? "Disconnect" : "Connect")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(vpnManager.connectionStatus == .connected ? .red : .green)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            })
+            .padding()
         }
-        .padding()
+        .onAppear(perform: {
+            vpnManager.loadVpnConfiguration()
+        })
     }
 }
 
