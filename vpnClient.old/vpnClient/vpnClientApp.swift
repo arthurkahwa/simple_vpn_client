@@ -1,14 +1,14 @@
 //
-//  VpnClientApp.swift
-//  VpnClient
+//  vpnClientApp.swift
+//  vpnClient
 //
-//  Created by Arthur Nsereko Kahwa on 9/12/24.
+//  Created by Arthur Nsereko Kahwa on 9/11/24.
 //
 
 import SwiftUI
 
 @main
-struct VpnClientApp: App {
+struct vpnClientApp: App {
     var body: some Scene {
         WindowGroup {
             VpnClientView()

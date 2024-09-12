@@ -35,9 +35,9 @@ class VpnManager: VpnManagerProtocol {
                 return
             }
             
-            if let firstZManager = managers?.first {
-                self.vpnManager = firstZManager
-                self.isConnected = firstZManager.connection.status == .connected
+            if let firstManager = managers?.first {
+                self.vpnManager = firstManager
+                self.isConnected = firstManager.connection.status == .connected
             }
             else {
                 self.vpnManager = self.createVpnConfiguration()
@@ -47,7 +47,7 @@ class VpnManager: VpnManagerProtocol {
     
     /// Create the connection manager for the connection
     /// - Returns: configured connection manager
-    private func createVpnConfiguration() -> NETunnelProviderManager {
+    func createVpnConfiguration() -> NETunnelProviderManager {
         let manager = NETunnelProviderManager()
         let config = NEVPNProtocolIKEv2()
         
